@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char name[50], sex;
+    int maleCount = 0, femaleCount = 0, totalCount = 0;
+    
+    char choice;
+
+    do {
+        printf("Enter participant's name: ");
+        scanf(" %[^\n]s", name); 
+
+     
+        do {
+            printf("Enter sex (M/F): ");
+            scanf(" %c", &sex);
+
+            if (sex != 'M' && sex != 'm' && sex != 'F' && sex != 'f') {
+                printf("Invalid input. Please enter M for Male or F for Female.\n");
+            }
+
+        } while (sex != 'M' && sex != 'm' && sex != 'F' && sex != 'f');
+
+     
+        if (sex == 'M' || sex == 'm') {
+            maleCount++;
+        } else {
+            femaleCount++;
+        }
+       totalCount++;
+        printf("Do you want to enter another participant? (Y/N): ");
+        scanf(" %c", &choice);
+
+    } while (choice == 'Y' || choice == 'y');
+
+ 
+    printf("\n--- Seminar Summary ---\n");
+    printf("Total Male Participants: %d\n", maleCount);
+    printf("Total Female Participants: %d\n", femaleCount);
+    printf("Total Participants: %d\n", totalCount);
+
+
+    if (maleCount > 2 && femaleCount > 2) {
+        printf("Seminar can be held.\n");
+    } else {
+        printf("Seminar cannot be held.\n");
+    }
+    
+
+    return 0;
+}
