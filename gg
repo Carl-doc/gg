@@ -29,10 +29,15 @@ int main() {
             femaleCount++;
         }
        totalCount++;
-        printf("Do you want to enter another participant? (Y/N): ");
-        scanf(" %c", &choice);
+     do {
+            printf("Do you want to enter another participant? (Y/N): ");
+            scanf(" %c", &choice);
+            if (choice != 'Y' && choice != 'y' && choice != 'N' && choice != 'n') {
+                printf("Invalid input. Please enter Y for yes or N for No\n");
+            } 
+     } while  (choice != 'Y' && choice != 'y' && choice != 'N' && choice != 'n');
 
-    } while (choice == 'Y' || choice == 'y');
+     }while (choice == 'Y' || choice == 'y');
 
  
     printf("\n--- Seminar Summary ---\n");
